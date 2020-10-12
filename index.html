@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rock-paper-scissors</title>
+    <script>
+
+        let playerSelection;
+
+
+        function computerPlay () {
+            
+            let guess = parseInt(( Math.random() * 3 ) + 1);
+            console.log(guess);
+            switch(guess){
+                case 1:
+                    return "Rock";
+                    break;
+
+                case 2:
+                    return "Paper";
+                    break;
+                
+                case 3:
+                    return "Scissors";
+                    break;
+                
+                default:  
+                    return "inValid";
+            }
+        } 
+        let computerSelection 
+
+        function playRound (player1, player2) {
+            player1 = player1.toUpperCase();
+            player2 = player2.toUpperCase();
+            if (player1 === "ROCK" && player2 === "PAPER"){
+                return "You lose, Paper beats rock";
+            }
+            else if (player1 === "PAPER" && player2 === "ROCK") {
+                return "You Win, Paper beats rock";
+            }
+            else if (player1 === "PAPER" && player2 === "SCISSORS") {
+                return "You lose, Scissors beats paper";
+            }
+            else if (player1 === "SCISSORS" && player2 === "PAPER") {
+                return "You Win, Scissors beats paper";
+            }
+            else if (player1 === "SCISSORS" && player2 === "ROCK") {
+                return "You lose, Scissors beats paper";
+            }
+            else if (player1 === "ROCK" && player2 === "SCISSORS") {
+                return "You Win, Scissors beats paper";
+            }
+             else {
+                return "you selected an invalid play"
+            }
+        }
+        let rounds = [];
+        let finalScore = 0;
+        let ans;
+        function game() {
+            for(i = 0; i < 5; i++){
+               playerSelection = prompt("input rock, paper or scissors to play round " + (i + 1);
+               computerSelection = computerPlay();
+               ans = playRound(playerSelection, computerSelection);
+               if (ans.indexOf("lose") < 1) {
+                rounds[i] = 1;
+                finalScore += 1
+               }
+               else {
+                   rounds[i] = 0;
+               }
+
+            }
+            for(p = 0; p < 5; p++){
+                console.log("Round " + (p + 1) + " score " + rounds[p]);
+            }
+            if (finalScore > 2){
+                return "you are the overal winner you won " + finalScore + " out of the 5 rounds.";
+            }
+            else{
+                return "you lost";
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

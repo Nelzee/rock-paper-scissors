@@ -53,24 +53,32 @@
             else if (player1 === "ROCK" && player2 === "SCISSORS") {
                 return "You Win, Scissors beats paper";
             }
+            else if (player1 === player2) {
+                return "its a draw";
+            }
              else {
-                return "you selected an invalid play"
+                return "you selected an invalid play";
             }
         }
         let rounds = [];
+        let computer = 0;
         let finalScore = 0;
         let ans;
         function game() {
             for(i = 0; i < 5; i++){
-               playerSelection = prompt("input rock, paper or scissors to play round " + (i + 1);
+               playerSelection = prompt("input rock, paper or scissors to play round " + (i + 1));
                computerSelection = computerPlay();
                ans = playRound(playerSelection, computerSelection);
                if (ans.indexOf("lose") < 1) {
                 rounds[i] = 1;
-                finalScore += 1
+                finalScore += 1;
+               }
+               else if (ans.indexOf("draw") < 1) {
+                rounds[i] = 0;
                }
                else {
                    rounds[i] = 0;
+                   computer += 1;
                }
 
             }
@@ -79,6 +87,9 @@
             }
             if (finalScore > 2){
                 return "you are the overal winner you won " + finalScore + " out of the 5 rounds.";
+            }
+            if (finalScore == computer){
+                return "its a draw";
             }
             else{
                 return "you lost";

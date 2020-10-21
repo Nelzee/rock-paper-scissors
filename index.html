@@ -176,10 +176,27 @@
             let msg = '';
             if (ply == 5){
                 msg = 'you win in the first of 5 game';
+                numPlayerScore = 0;
+                numComputerScore = 0;
+                numDrawScore = 0;
+                computerScore.textContent = numComputerScore;
+                scoreboardc.append(computerScore);
+                playerScore.textContent = numPlayerScore;
+                scoreboardp.append(playerScore);
+                drawScore.textContent = numDrawScore;
+                scoreboardd.append(drawScore);
             }
             else if(cmp == 5){
                 msg = 'you lose the computer made to 5 games first';
-                
+                numPlayerScore = 0;
+                numComputerScore = 0;
+                numDrawScore = 0;
+                computerScore.textContent = numComputerScore;
+                scoreboardc.append(computerScore);
+                playerScore.textContent = numPlayerScore;
+                scoreboardp.append(playerScore);
+                drawScore.textContent = numDrawScore;
+                scoreboardd.append(drawScore);
             }
             else{
                 msg = '';
